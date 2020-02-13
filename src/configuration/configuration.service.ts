@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import { parse } from 'dotenv';
+import * as path from 'path';
 
 
 export class ConfigurationService{
@@ -8,7 +9,7 @@ export class ConfigurationService{
         const isDevelopmentEnv = process.env.NODE_ENV !== "production";
 
         if (isDevelopmentEnv) {
-            const envFilePath = __dirname + '/../../.env';
+            const envFilePath =path.join(__dirname, '..', '..', '..', '.env');
             const existPATH = fs.existsSync(envFilePath);
 
             if (!existPATH) {
